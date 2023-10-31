@@ -1,0 +1,297 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+/* body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+} */
+
+.mainContent{
+    transform: translate(0%, 40%);
+  
+}
+.title{
+  font-size: 60px;
+  line-height: 74px;
+  font-weight: 700;
+  padding-right: 50px;
+;
+}
+.para{
+  font-size: 20px;
+  line-height: 35px;
+  padding-right: 150px;
+  color: gray;
+}
+.orderBtn{
+  color: white;
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: #C70039;
+  transition: 0.5s;
+}
+.orderBtn:hover{
+  background-color: #FFF5E0;
+  transition: 0.5s;
+  color: black;
+  
+}
+.imgSection{
+  position: relative;
+}
+.imgSection .img1{
+  position: absolute;
+  left: 0;
+  top:0;
+  z-index: 1;
+}
+.img2{
+  position: absolute;
+  z-index: 2;
+  left: 450px;
+  bottom: -450px;
+}
+.aboutSection{
+  background-color: #FFF5E0;
+}
+.aboutContent{
+  padding: 100px;
+  transform: translate(0%, 10%);
+}
+.aboutTitle{
+  font-size: 60px;
+  line-height: 74px;
+  margin-bottom: 20px;
+  font-weight: 700;
+
+}
+.aboutContent p{
+  font-size: 20px;
+  line-height: 35px;
+  padding-right: 150px;
+  color: gray;
+}
+.breadCrumb{
+  transform: translate(0%, 30%);
+  justify-content: center;
+  align-items: center;
+}
+.break1::after{
+  content: "/";
+  padding: 0 10px;
+  color: gray;
+}
+.breadCrumb .bread{
+
+  font-weight: 500;
+   font-size: 20px;
+
+}
+.breadCrumb img{
+  float: right;
+}
+.family ,.about{
+  padding:30px 80px
+}
+.about h1{
+  font-size:40px;
+  font-weight: 700;
+}
+
+.about p{
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 32px;
+  margin-bottom: 20px;
+}
+.family h1{
+  font-size: 24px;
+  font-weight: 600;
+}
+.family p{
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.family img{
+  border-radius: 20px;
+}
+.journey{
+  padding-right: 50px;
+}
+.journey h1{
+  font-size: 24px;
+  font-weight: 600;
+}
+.journey p{
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.contactSection , .title2{
+  padding: 20px 50px;
+}
+.title2{
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 55px;
+}
+.form input, textarea{
+  margin: 15px;
+
+}
+.submitBtn{
+  float: right;
+  margin-right: 20px;
+  margin-top: 20px;
+  width: 120px;
+  border-radius: 30px;
+  font-size: 20px;
+  background-color: #C70039;
+  transition: 0.5s;
+  font-weight: 600;
+}
+.submitBtn:hover{
+  background-color: #FFF5E0;
+  transition: 0.5s;
+  color: black;
+}
+.contactImg img{
+  border-radius: 30px;
+}
+.loginSection{
+  background-color: #FFF5E0;
+  border: 30px;
+  width: 60%;
+  transform: translate(35%, 15%);
+}
+.LoginContent{
+  padding: 20px;
+}
+.LoginContent h1{
+  font-size: 40px;
+  font-weight: 700;
+}
+.LoginContent input{
+  margin:15px 0px;
+}
+.LoginContent .btn{
+  margin: 15px 0px;
+  padding: 15px;
+  width: 100%;
+  border-radius: 30px;
+  background-color: #C70039;
+  border: 2px solid #C70039;
+  color: white;
+  transition: 0.5s;
+  font-weight: 600;
+}
+.LoginContent .btn:hover{
+  background-color: #FFF5E0;
+  transition: 0.5s;
+  color: black;
+  border: 2px solid black;
+}
+.customPizza{
+  margin-top: 400px;
+
+}
+.customPizza h2{
+  font-size: 35px;font-weight: 600;
+  line-height: 40px;
+}
+.customPizza p{
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 20px;
+  padding-right: 100px;
+  color: gray;
+  line-height: 32px;
+}
+@media all and (max-width: 500px) {
+  .mainSection{
+    transform: translate(0%, 0%);
+    padding: 10px !important;
+  }
+  .mainContent{
+    transform: translate(0%, 20%);
+  }
+  .title{
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: 700;
+    padding-right: 0px;
+  }
+  .para{
+    font-size: 15px;
+    line-height: 25px;
+    padding-right: 0px;
+  }
+  .orderBtn{
+    font-size: 15px;
+    padding: 5px;
+  }
+  .imgSection {
+   transform: translate(0%, 100%);
+  }
+  .img2{
+    left: 0px;
+    bottom: 450px;
+  }
+  .customPizza{
+    display: block !important;
+    margin-top:150px;
+    padding: 30px !important;
+  }
+  .customPizza .imgContent{
+    width: 70%;
+  }
+  .customPizza h2{
+    font-size: 25px;
+    line-height: 30px;
+  }
+  .customPizza p{
+    font-size: 18px;
+    line-height: 25px;
+    padding-right: 0px;
+  }
+  .customPizza .orderBtn{
+    font-size: 15px;
+    padding: 5px;
+  }
+  .loginSection{
+    width: 100%;
+    transform: translate(0%, 0%);
+    padding: 10px !important;
+  }
+  .a {
+    display: block !important;
+}
+.aboutContent{
+  padding: 0px !important;
+  transform: translate(0%, 0%);
+}
+}

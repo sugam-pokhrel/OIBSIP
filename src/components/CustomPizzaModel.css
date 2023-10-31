@@ -1,0 +1,80 @@
+/* CustomPizzaModal.css */
+
+/* Modal container */
+.custom-pizza-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Modal content */
+  .custom-pizza-modal-content {
+    background: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+    text-align: center;
+  }
+  
+  /* Modal title */
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1rem 0;
+  }
+  
+  /* Form labels */
+  .form-label {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 1rem 0 0.5rem;
+  }
+  
+  /* Select input */
+  .select-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+  }
+  
+  /* Buttons */
+  .modal-button {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+  /* Quantity buttons */
+  .quantity-button {
+    background-color: #eee;
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+  /* Order value */
+  .order-value {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 1rem 0;
+  }
+  
+  /* Valid and invalid styles */
+  .valid {
+    color: #00c000;
+  }
+  
+  .invalid {
+    color: #c00000;
+  }
+  
