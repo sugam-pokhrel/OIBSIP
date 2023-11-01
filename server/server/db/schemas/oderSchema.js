@@ -23,7 +23,12 @@ const oderSchema = new mongoose.Schema({
     amount:{
         type:Number,
 
-    }
+    },
+    status:{
+        type:String,
+        default:"pending"
+    },
+    
 
 
     }

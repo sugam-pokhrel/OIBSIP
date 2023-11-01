@@ -6,7 +6,7 @@ import Products from "../components/Product"
 import DiscountProduct from '../components/DiscountProduct'
 import { ToastContainer, toast } from 'react-toastify';
 const Shop = () => {
-  const dispatch = useDispatch();
+
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   let [product,setProduct]=React.useState([])
   React.useEffect(()=>{
@@ -16,6 +16,7 @@ const Shop = () => {
       })
     })
   },[])
+ 
 
   const openModal = () => {
     setIsModalOpen(true);

@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../db/schemas/User');
 
 const protect =async (req, res, next) => {
+    console.log(req.body)
     try {
         const token = req.body.token;
 

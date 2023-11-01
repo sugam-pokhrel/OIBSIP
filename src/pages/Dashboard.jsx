@@ -111,6 +111,9 @@ const DashBoard = () => {
 
     
   };
+  function handleOrderStatusChange(e) {
+    console.log(e.target.value);
+  }
 
   useEffect(() => {
     isadmin();
@@ -192,9 +195,31 @@ const DashBoard = () => {
           <div className="order-name">{order.name}</div>
           <div className="order-user">User: {order.user}</div>
           <div className="order-amount">Amount: Rs.{order.amount}</div>
+          <div className="order-status-dropdown">
+  {/* Dropdown for selecting order status */}
+  <label htmlFor="orderStatus" className="block text-sm font-medium text-gray-700">
+    Select Order Status:
+  </label>
+  <div className="mt-1 relative rounded-md shadow-sm">
+    <select
+      id="orderStatus"
+      name="orderStatus"
+      className="form-select block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+      onChange={handleOrderStatusChange}
+      
+    >
+     
+      <option value="Received">Received</option>
+      <option value="In Kitchen">In Kitchen</option>
+      <option value="Sent to Delivery">Sent to Delivery</option>
+    </select>
+  </div>
+</div>
         </div>
+        
       ))}
     </div>
+
   </div>
 )}
 

@@ -11,6 +11,18 @@ const orders=require('../db/schemas/oderSchema')
 
 
 
+router.post('/orders',protect,async(req,res)=>{
+    let data=await orders.find({user:req.user.email})
+    return res.json(data)
+
+
+
+}).put('/orders',async(req,res)=>{
+    let data=await orders.findByIdAndUpdate(req.body.id,{status:req.body.status})
+    return res.json(data)
+})
+
+
 //registering the user
 
 router.post('/signup',async(req,res)=>{
@@ -200,7 +212,7 @@ router.post('/resetpassword',async(req,res)=>{
 
 
 router.post('/isadmin',protect,async(req,res)=>{
-    let data=await orders.find({}).select('amount').select('user').select('name')
+    let data=await orders.find({}).select('amount').select('user').select('name').select('status')
     let hello=0;
     console.log(data)
     data.map((order)=>{
@@ -217,6 +229,8 @@ router.post('/isadmin',protect,async(req,res)=>{
 
 
 })
+
+
 
 
 

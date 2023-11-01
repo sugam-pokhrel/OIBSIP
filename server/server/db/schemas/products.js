@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const sendEmail = require('../../utils/stockemail');
 const PizzaSchema=new mongoose.Schema({
     title:{
         type:String,
@@ -39,6 +39,7 @@ PizzaSchema.pre('save', function (next) {
       // Perform your custom actions here, e.g., send notifications or trigger an event
       // This code will run whenever the 'quantity' field is modified and falls below 5.
       console.log(this.title+'pizza quantity is below 5!');
+      sendEmail(this.title+'pizza quantity is below 5!')
       // Replace the console.log statement with your custom event handling logic.
     }
     next();
