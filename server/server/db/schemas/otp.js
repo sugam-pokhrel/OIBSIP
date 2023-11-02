@@ -22,3 +22,4 @@ const otpSchema = new mongoose.Schema({
 const OTPModel = mongoose.model('OTP', otpSchema);
 
 module.exports = OTPModel;
+
