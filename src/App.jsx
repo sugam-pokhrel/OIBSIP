@@ -13,6 +13,7 @@ import SignUp from './pages/Signup';
 import Admin from './pages/Admin';
 import DashBoard  from './pages/Dashboard';
 import Profile from './pages/Profile';
+import Error from './pages/Error';
 
 // import Footer from '../src/components/Footer';
 function App() {
@@ -26,12 +27,15 @@ function App() {
     <Routes>
     
     <Route path='' element={<Home/>}/>
+    <Route path='/Error' element={<Error />} />
     <Route path='/About' element={<About/>}/>
     <Route path='/Contact' element={<Contact/>}/>
     <Route path='/Shop' element={<Shop/>}/>
     <Route path='/Login' element={<Login/>}/>
     <Route path='/Signup' element={<SignUp/>}/>
+    
     <Route path='/Profile' element={<Profile/>}/>
+   
     {/* <Route path="/Cart" element={<Cart/>} /> */}
 
     {/* <Footer></Footer> */}

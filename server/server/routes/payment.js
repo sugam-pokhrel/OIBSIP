@@ -83,9 +83,9 @@ router.post('/paymentverification', async (req, res) => {
 
          
 
-            return res.redirect(`http://localhost:5173/`);
+            return res.redirect(`http://localhost:5173/Profile`);
         } else {
-            return res.status(400).json({ success: false });
+            return res.redirect(`http://localhost:5173/Error`)
         }
     } catch (error) {
         console.error(error);
