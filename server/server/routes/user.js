@@ -18,7 +18,9 @@ router.post('/orders',protect,async(req,res)=>{
 
 
 }).put('/orders',async(req,res)=>{
-    let data=await orders.findByIdAndUpdate(req.body.id,{status:req.body.status})
+    console.log(req.body)
+    let data=await orders.findByIdAndUpdate(req.body.id,{ status: req.body.status||'Received' }, { new: true });
+    console.log(data)
     return res.json(data)
 })
 
@@ -40,34 +42,15 @@ router.post('/signup',async(req,res)=>{
     }
 
     const userExists=await User.findOne({email:email})
-    if(userExists&&userExists.verified==false){
 
-        return res.status(401).json({error:"please verify your email "})
+    // if(userExists&&userExists.verified==false){
 
-
-    }
-    if(userExists&&req.body.isAdmin==true){
-        if(userExists.role==1){
-            return res.status(401).json({error:"You are already an admin"})
-        }
-
-        userExists.role=1
-        await userExists.save()
-        return res.json({message:"admin created successfully"})
-          
+    //     return res.status(401).json({error:"please verify your email "})
 
 
-      
-      
-    }else{
-        console.log("user exists")
-        try{
-        return res.status(404).json({error:"user already exists"})
-        }catch(e){
-            console.log('e')
-        }
-    }
-
+    // }
+    
+   
     let user=async()=>{
         try{
             let newUser=await new User({name,email,password,role:req.body.isAdmin?1:0})
@@ -90,7 +73,38 @@ router.post('/signup',async(req,res)=>{
             return res.status(400).json({error:"error adding user"})
         }
     }
-    user();
+    if(!userExists){
+     user();
+    }
+    console.log(userExists)
+    if(userExists&&req.body.isAdmin==true){
+        if(userExists.role==1){
+            return res.status(401).json({error:"You are already an admin"})
+        }
+
+        userExists.role=1
+        await userExists.save()
+        return res.json({message:"admin created successfully"})
+          
+
+
+      
+      
+    }
+    if(userExists&&userExists.verified==true){
+        return res.status(401).json({error:"user already exists"})
+    }
+    if(userExists&&userExists.verified==false){
+        const randomNum = Math.floor(Math.random() * 100000);
+        await OTPModel.create({ email: email, otp: randomNum });
+        
+        await sendEmail(email,randomNum)
+        console.log("Email in action")
+        return res.json({message:"please verify your email"})
+    }
+
+
+    
 
     //         await generateToken(res,newUser._id)
 

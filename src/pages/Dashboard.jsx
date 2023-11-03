@@ -111,9 +111,23 @@ const DashBoard = () => {
 
     
   };
-  function handleOrderStatusChange(e) {
-    console.log(e.target.value);
+ async  function handleOrderStatusChange(e,id) {
+  let doc=document.getElementById(id)
+  console.log(doc.value)
+  doc.value=e.target.value
+  
+
+  
+    let data=await fetch('http://localhost:5000/user/orders', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: id, status: e.target.value }),
+    }
+    );
   }
+
 
   useEffect(() => {
     isadmin();
@@ -202,16 +216,18 @@ const DashBoard = () => {
   </label>
   <div className="mt-1 relative rounded-md shadow-sm">
     <select
-      id="orderStatus"
+      id={order._id}
       name="orderStatus"
+      
       className="form-select block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-      onChange={handleOrderStatusChange}
+      onChange={e=>handleOrderStatusChange(e,order._id)}
       
     >
      
-      <option value="Received">Received</option>
+      <option value="Received">{order.status}</option>
       <option value="In Kitchen">In Kitchen</option>
       <option value="Sent to Delivery">Sent to Delivery</option>
+
     </select>
   </div>
 </div>

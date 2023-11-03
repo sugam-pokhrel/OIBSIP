@@ -1,8 +1,8 @@
 import {Link} from 'react-router-dom'
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import Modal from '../components/Modal'
 import '../components/Modal.css'
-import {useDispatch} from 'react-redux'
+import {useDispatch,useSelector} from 'react-redux'
 import {setUser} from '../store/localSlice'
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -15,6 +15,13 @@ export default function Login() {
   const [otp,setOtp]=useState('') 
   const [password,setPassword]=useState('')
   const dispatch = useDispatch();
+  const user=useSelector(state=>state.user)
+  useEffect(()=>{
+    if(user){
+      window.location.href='/'
+    }
+  }
+  )
 
   const openModal = async() => {
    
